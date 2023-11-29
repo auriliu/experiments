@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      li {
+        width: 100%; /* By default, each list item takes full width on mobile */
+        box-sizing: border-box;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 5px;
+      }
+
+      @media (min-width: 600px) {
+        li {
+          width: 48%; /* Two columns for tablets */
+        }
+      }
+
+      @media (min-width: 900px) {
+        li {
+          width: 30%; /* Three columns for PCs */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+    </ul>
+  </body>
+</html>
