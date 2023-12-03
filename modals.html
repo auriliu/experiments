@@ -3,69 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modal with Tabs</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-      }
-
-      .modal {
+      /* Styles for the overlay */
+      .overlay {
         display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.7);
         align-items: center;
+        justify-content: center;
       }
 
-      .modal-content {
+      /* Styles for the modal */
+      .modal {
         background-color: #fff;
         padding: 20px;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        max-width: 400px;
-        margin: 0 auto;
+        position: relative; /* Added position:relative to ensure close button is positioned correctly */
       }
 
-      .tabs {
-        display: flex;
+      /* Close button style */
+      .close {
         cursor: pointer;
-      }
-
-      .tab {
-        flex: 1;
-        text-align: center;
-        padding: 10px;
-        background-color: #ddd;
-        border-radius: 5px 5px 0 0;
-      }
-
-      .tab:hover {
-        background-color: #ccc;
-      }
-
-      .tab-content {
-        display: none;
-        padding: 10px;
-      }
-
-      input[name="tabs"] {
-        display: none;
-      }
-
-      input[name="tabs"]:checked .tab-content {
-        display: block;
-      }
-
-      input[name="tabs"]:checked + label {
-        background-color: #fff;
-        border-bottom: 1px solid #fff;
+        position: absolute;
+        top: 10px;
+        right: 10px;
       }
     </style>
   </head>
@@ -74,43 +40,23 @@
     <button onclick="openModal()">Open Modal</button>
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <!-- Tabs -->
-        <div class="tabs">
-          <input type="radio" name="tabs" id="tab1" checked />
-          <label for="tab1" class="tab">Tab 1</label>
-
-          <input type="radio" name="tabs" id="tab2" />
-          <label for="tab2" class="tab">Tab 2</label>
-        </div>
-
-        <!-- Tab Content -->
-        <div class="tab-content" id="content1">
-          <h2>Content for Tab 1</h2>
-          <p>This is the content for the first tab.</p>
-        </div>
-
-        <div class="tab-content" id="content2">
-          <h2>Content for Tab 2</h2>
-          <p>This is the content for the second tab.</p>
-        </div>
+    <div id="myModal" class="overlay" onclick="closeModal()">
+      <div class="modal" onclick="event.stopPropagation();">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>This is a simple modal!</p>
       </div>
     </div>
 
     <script>
-      // Open the modal
+      // Function to open the modal
       function openModal() {
         document.getElementById("myModal").style.display = "flex";
       }
 
-      // Close the modal when clicking outside the modal content
-      window.onclick = function (event) {
-        var modal = document.getElementById("myModal");
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      };
+      // Function to close the modal
+      function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+      }
     </script>
   </body>
 </html>
