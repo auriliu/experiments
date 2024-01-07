@@ -17,6 +17,13 @@
         justify-content: center;
       }
 
+      /* Close button style */
+      .close {
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
       /* Styles for the modal */
       .modal {
         background-color: #fff;
@@ -24,14 +31,14 @@
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         position: relative; /* Added position:relative to ensure close button is positioned correctly */
+        background-color: wheat;
+        max-width: 80%;
+        max-height: 80%;
+        overflow-y: scroll;
       }
-
-      /* Close button style */
-      .close {
-        cursor: pointer;
-        position: absolute;
-        top: 10px;
-        right: 10px;
+      img {
+        display: block;
+        width: 100%;
       }
     </style>
   </head>
@@ -43,7 +50,19 @@
     <div id="myModal" class="overlay" onclick="closeModal()">
       <div class="modal" onclick="event.stopPropagation();">
         <span class="close" onclick="closeModal()">&times;</span>
-        <p>This is a simple modal!</p>
+        <div class="container">
+          <p>project #1</p>
+          <div class="section">
+            <p>signup page:</p>
+            <img src="./images/BB.signup.png" alt="" />
+          </div>
+          <!--  -->
+          <div class="section">
+            <p>login page:</p>
+            <img src="./images/BB.login.png" alt="" />
+          </div>
+          <!--  -->
+        </div>
       </div>
     </div>
 
